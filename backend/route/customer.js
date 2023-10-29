@@ -144,4 +144,20 @@ app.post("/auth", async (req, res) => {
   }
 });
 
+app.delete("/:customer_id", auth, async (req, res) => {
+  let param = { customer_id: req.params.customer_id };
+  customer
+    .destroy({ where: param })
+    .then((result) => {
+      res.json({
+        message: "data has been deleted",
+      });
+    })
+    .catch((error) => {
+      res.json({
+        message: error.message,
+      });
+    });
+});
+
 module.exports = app;
