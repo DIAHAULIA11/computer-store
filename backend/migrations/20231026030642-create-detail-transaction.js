@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("detail_transaction", {
-      trasaction_id: {
+      transaction_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
